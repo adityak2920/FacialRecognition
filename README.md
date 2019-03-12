@@ -1,12 +1,14 @@
 # Facial_Recognition
 FacialRecognition using webcam
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/adityak2920/Facial_Recognition/master)
 
+A docker image for directly run in browser :- [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/adityak2920/Facial_Recognition/master)
 
-In these files i have incuded face recognition by web cam and also using camera of phone for that we need to download ipwebcam app and after installation we need to start server.
-
-
-facedata.py is for collection of datasets on which we can run recogn.py for recognition of images
-
-
-in the file name faceipwebcam.py I have only included code for collection of images but like the same as recogn.py we can code for recognition
+Functions of different files:
+   1. facedata.py - for collecting data from laptop's web cam.
+   2. faceipwebcam.py - for collectin data from phone's camera(using an app called ipwebcam)
+   3. recogn.py - for recognition of faces using laptop's web cam(we can also use phone's camera training by making some 
+                   changes in the code like in faceipwebcam.py), here i have used KNN for training.
+   4. .npy - theses are the files containg data of images captured using facedata.py and faceipwebcam.py(here i have only 
+             captured 13 images of per person)
+             
+Link for demo:-  [Video](https://drive.google.com/open?id=1So876Leh-Q9adzxb9-ZEe-Qvk7xjYHwq)
