@@ -1,8 +1,12 @@
 import numpy as np
 import cv2
 import os
+
+## KNN algorithm for matchinf faces
 def distance(v1, v2):
     return np.linalg.norm(v1-v2)
+
+
 def knn(train, test, k=3):
     dist=[]
     for i in range(train.shape[0]):
@@ -15,13 +19,17 @@ def knn(train, test, k=3):
     freq=np.unique(labels,return_counts=True)
     out=np.argmax(freq[1])
     return freq[0][out]
+    
+    
 cap=cv2.VideoCapture(0)
 face_cascade=cv2.CascadeClassifier('/anaconda3/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml')
+
 dataset_path='/Users/adityakumar/Desktop/Face Recognition/'
 facedata=[]
 labels=[]
 class_id=0
 names={}
+
 for fx in os.listdir(dataset_path):
     if fx.endswith('.npy'):
         a, b=fx.split('.')

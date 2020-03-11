@@ -2,16 +2,17 @@ import urllib
 import numpy as np
 import cv2
 import time
-url = 'http://10.121.21.299:8080/shot.jpg'
 
+# replace this url with url at the bottom ipwebcam app
+url = 'http://10.121.21.299:8080/shot.jpg'
 
 #cap = cv2.VideoCapture(0)
 
-face_cascade = cv2.CascadeClassifier('/Users/adityakumar/Desktop/ML/haarcascade/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('path of haarcascade file')
 
 skip = 0
 face_data = []
-dataset_path = '/Users/adityakumar/Desktop/ML/FaceRecognition/'
+dataset_path = 'path of folder to save data'
 
 file_name = raw_input('Enter the name of the person: ')
 

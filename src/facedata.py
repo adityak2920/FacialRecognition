@@ -1,11 +1,17 @@
 import numpy as np
 import cv2
+
+
 cap=cv2.VideoCapture(0)
-face_cascade=cv2.CascadeClassifier('/anaconda3/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml')
+face_cascade=cv2.CascadeClassifier('path of haarcascade file')
+
+
 skip=0
 face_data=[]
-dataset_path='/Users/adityakumar/Desktop/Face Recognition/'
+dataset_path='path of folder to save data'
 file_name=input("Enter the name of the person: ")
+
+
 def draw_border(img, pt1, pt2, color, thickness, r, d):
     x1,y1 = pt1
     x2,y2 = pt2
@@ -29,6 +35,8 @@ def draw_border(img, pt1, pt2, color, thickness, r, d):
     cv2.line(img, (x2 - r, y2), (x2 - r - d, y2), color, thickness)
     cv2.line(img, (x2, y2 - r), (x2, y2 - r - d), color, thickness)
     cv2.ellipse(img, (x2 - r, y2 - r), (r, r), 0, 0, 90, color, thickness)
+
+
 while True:
     ret, frame=cap.read()
     if ret==False:
@@ -53,10 +61,14 @@ while True:
     if cv2.waitKey(1) & 0xFF==ord('q'):
         break 
 
+
 face_data=np.asarray(face_data)
 face_data=face_data.reshape((face_data.shape[0], -1))
+
 print(face_data.shape)
+
 np.save(dataset_path+file_name, face_data)
+
 print("Dataset saved at: {}".format(dataset_path+file_name+'.npy'))
 
 
